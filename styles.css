@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
 }
 
 .spinner-container {
@@ -38,11 +39,15 @@ body {
 }
 
 .container {
-    display: none; /* Hide container initially */
+    display: flex; /* Display the container */
     flex-direction: row; /* Arrange items in a row */
     justify-content: center;
     align-items: center;
     gap: 40px; /* Increased gap between the cards */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    padding: 20px; /* Add padding to the container */
+    max-height: 100vh; /* Ensure container does not exceed viewport height */
 }
 
 /* Rest of your CSS code */
@@ -213,36 +218,73 @@ body {
     margin-right: 5px;
 }
 
+/* General styles remain the same */
+
 /* Media query for screens smaller than 768px (typical mobile devices) */
 @media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Display cards in a column */
+        align-items: center; /* Center align items */
+    }
+
     .weather-app, .weather-current, .weather-history {
         width: 90%; /* Adjust width for smaller screens */
         padding: 20px; /* Reduce padding */
+        margin-bottom: 20px; /* Add space between cards */
+        box-sizing: border-box; /* Ensure padding is included in width calculation */
+        text-align: center; /* Center align text */
     }
 
-    .weather-forecasts h1, .weather-history h1 {
+    .weather-app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-forecasts h1 {
         font-size: 40px; /* Adjust font size */
+        margin-bottom: 10px; /* Add margin */
     }
 
     .city-name {
         font-size: 30px; /* Adjust font size */
-        margin-bottom: 30px; /* Adjust margin */
-        margin-top: 20px; /* Adjust margin */
+        margin-bottom: 20px; /* Add margin */
+    }
+
+    .city-search {
+        width: 100%; /* Full width for search container */
+        max-width: 300px; /* Limit maximum width */
+        margin-bottom: 20px; /* Add margin */
+        text-align: center; /* Center align text */
     }
 
     .city-input {
-        width: 100%; /* Full width for input on smaller screens */
-        margin-right: 0;
+        width: calc(100% - 100px); /* Adjust input width minus button width */
+        padding: 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box; /* Ensure padding is included in width calculation */
     }
 
     .search-btn {
-        width: 100%; /* Full width for button on smaller screens */
-        margin-top: 10px; /* Adjust margin */
+        width: 100px; /* Fixed width for button */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background: #f1c40f;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        box-sizing: border-box; /* Ensure padding is included in width calculation */
     }
 
     .weather-icon-img-first-card {
-        width: 100px; /* Adjust size for smaller screens */
-        height: 100px; /* Adjust size for smaller screens */
+        width: 100%; /* Adjust size to fill container */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 150px; /* Limit maximum width */
+        margin-bottom: 20px; /* Add margin */
     }
 
     .weather-icon-img {
