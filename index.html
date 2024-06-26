@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+    <div class="container">
+        <!-- First Card: City Input and Title -->
+        <div class="weather-app">
+            <div class="weather-forecasts">
+                <div class="weather-icon-first-card">
+                    <img src="images/clear.png" alt="Clear Weather" class="weather-icon-img-first-card">
+                </div>
+                <h1>Weather <br><span class="highlight">Forecasts</span></h1>
+                <div class="city-name"></div>
+                <div class="city-search">
+                    <input type="text" class="city-input" placeholder="Enter city name">
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Card: Detailed Weather Information -->
+        <div class="weather-current">
+            <div class="weather-icon">
+                <img src="" alt="Weather Icon" class="weather-icon-img">
+            </div>
+            <div class="temperature"><span class="temp-value"></span>°C</div>
+            <div class="weather-description"><span class="weather-desc"></span></div>
+            <div class="max-min">Min: <span class="min-temp"></span>°C  Max: <span class="max-temp"></span>°C</div>
+            
+            <!-- Forecast Cards -->
+            <div class="upcoming-forecast">
+                <div class="forecast-card">
+                    <div class="forecast-item">
+                        <img src="" alt="Forecast Icon" class="forecast-icon">
+                        <p class="temp"></p>
+                        <p class="time"></p>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="forecast-item">
+                        <img src="" alt="Forecast Icon" class="forecast-icon">
+                        <p class="temp"></p>
+                        <p class="time"></p>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <div class="forecast-item">
+                        <img src="" alt="Forecast Icon" class="forecast-icon">
+                        <p class="temp"></p>
+                        <p class="time"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Card: Search History -->
+        <div class="weather-history">
+            <h1 class = "search-history">Search <span class="highlight">History</span></h1>
+            <div class="history-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
