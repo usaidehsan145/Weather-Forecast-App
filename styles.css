@@ -1,320 +1,96 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #5f2c82, #49a09d);
-    color: #fff;
+    background-color: #FF4081;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
-    overflow: hidden; /* Prevent scrolling */
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.spinner-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.card {
+    background-color: #333;
+    border-radius: 10px;
+    width: 350px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.tab.active {
+    color: white;
+    border-bottom: 2px solid #FF4081;
+}
+
+.date-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 9999;
+    margin-bottom: 20px;
 }
 
-.spinner {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
+.date-container button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0 20px;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.container {
-    display: flex; /* Display the container */
-    flex-direction: row; /* Arrange items in a row */
-    justify-content: center;
-    align-items: center;
-    gap: 40px; /* Increased gap between the cards */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    overflow-y: auto; /* Allow vertical scrolling if content overflows */
-    padding: 20px; /* Add padding to the container */
-    max-height: 100vh; /* Ensure container does not exceed viewport height */
-}
-
-/* Rest of your CSS code */
-
-.weather-app, .weather-current, .weather-history {
+.date-container .date {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    padding: 40px; /* Increased padding */
-    width: 400px; /* Increased width */
-    transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow */
-}
-
-.weather-app:hover, .weather-current:hover, .weather-history:hover {
-    transform: scale(1.05); /* Zoom in effect on hover */
-}
-
-.weather-forecasts h1, .weather-history h1 {
-    font-size: 50px; /* Increased font size */
-    text-align: center;
-    margin-bottom: 10px; /* Added margin */
-}
-
-.weather-forecasts .highlight, .weather-history .highlight {
-    color: #f1c40f;
-}
-
-.city-name {
-    font-size: 35px; /* Increased font size */
-    font-weight: bold; /* Bold */
-    text-align: center;
-    margin-bottom: 40px; /* Increased margin */
-    margin-top: 30px; /* Added margin */
-}
-
-.city-search {
-    margin-top: 20px;
-}
-
-.city-input {
-    padding: 10px;
-    width: 200px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px 5px 5px 5px;
-    font-size: 16px;
-}
-
-.search-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px 5px 5px 5px;
-    background: #f1c40f;
-    color: #333;
-    font-size: 16px;
     cursor: pointer;
 }
 
-.weather-icon-first-card {
+#day-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#full-date {
+    font-size: 1rem;
+}
+
+.task-input-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-bottom: 20px;
 }
 
-.weather-icon-img-first-card {
-    width: 150px; /* Increased size */
-    height: 150px; /* Increased size */
-}
-
-.weather-icon {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.weather-icon-img {
-    width: 100px;
-    height: 100px;
-}
-
-.temperature {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.weather-description {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.max-min {
-    font-size: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.upcoming-forecast {
-    margin-top: 20px;
+#task-input {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.forecast-card {
-    background: rgba(255, 255, 255, 0.1);
+    max-width: 300px;
     padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
-    flex: 1;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.forecast-item {
-    color: #fff;
-}
-
-.forecast-item p {
-    margin: 5px 0;
-}
-
-.forecast-icon {
-    display: block;
-    margin: 0 auto;
-    width: 50px;
-    height: 50px;
-}
-
-.history-list {
-    width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.history-item {
-    font-size: 20px;
-    margin: 5px 0;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
+    border: none;
     border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    background-color: #444;
+    color: white;
+    font-size: 1rem;
+    outline: none;
 }
 
-.history-city {
-    flex-grow: 1;
+.content {
+    display: none;
 }
 
-.history-temp-icon {
-    display: flex;
-    align-items: center;
-    margin-right: -10px;
-}
-
-.history-icon {
-    width: 30px; /* Adjust size as needed */
-    height: 30px;
-    margin-left: 10px;
-    margin-right: 5px;
-}
-
-/* General styles remain the same */
-
-/* Media query for screens smaller than 768px (typical mobile devices) */
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Display cards in a column */
-        align-items: center; /* Center align items */
-    }
-
-    .weather-app, .weather-current, .weather-history {
-        width: 90%; /* Adjust width for smaller screens */
-        padding: 20px; /* Reduce padding */
-        margin-bottom: 20px; /* Add space between cards */
-        box-sizing: border-box; /* Ensure padding is included in width calculation */
-        text-align: center; /* Center align text */
-    }
-
-    .weather-app {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .weather-forecasts h1 {
-        font-size: 40px; /* Adjust font size */
-        margin-bottom: 10px; /* Add margin */
-    }
-
-    .city-name {
-        font-size: 30px; /* Adjust font size */
-        margin-bottom: 20px; /* Add margin */
-    }
-
-    .city-search {
-        width: 100%; /* Full width for search container */
-        max-width: 300px; /* Limit maximum width */
-        margin-bottom: 20px; /* Add margin */
-        text-align: center; /* Center align text */
-    }
-
-    .city-input {
-        width: calc(100% - 100px); /* Adjust input width minus button width */
-        padding: 10px;
-        margin-right: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        box-sizing: border-box; /* Ensure padding is included in width calculation */
-    }
-
-    .search-btn {
-        width: 100px; /* Fixed width for button */
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background: #f1c40f;
-        color: #333;
-        font-size: 16px;
-        cursor: pointer;
-        box-sizing: border-box; /* Ensure padding is included in width calculation */
-    }
-
-    .weather-icon-img-first-card {
-        width: 100%; /* Adjust size to fill container */
-        height: auto; /* Maintain aspect ratio */
-        max-width: 150px; /* Limit maximum width */
-        margin-bottom: 20px; /* Add margin */
-    }
-
-    .weather-icon-img {
-        width: 80px; /* Adjust size for smaller screens */
-        height: 80px; /* Adjust size for smaller screens */
-    }
-
-    .temperature {
-        font-size: 30px; /* Adjust font size */
-        margin-bottom: 10px; /* Adjust margin */
-    }
-
-    .weather-description {
-        font-size: 20px; /* Adjust font size */
-        margin-bottom: 10px; /* Adjust margin */
-    }
-
-    .max-min {
-        font-size: 16px; /* Adjust font size */
-        margin-bottom: 10px; /* Adjust margin */
-    }
-
-    .forecast-icon {
-        width: 40px; /* Adjust size for smaller screens */
-        height: 40px; /* Adjust size for smaller screens */
-    }
-
-    .history-item {
-        font-size: 16px; /* Adjust font size */
-        padding: 5px; /* Adjust padding */
-        margin-bottom: 10px; /* Adjust margin */
-    }
+.content.active {
+    display: block;
 }
